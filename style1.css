@@ -1,0 +1,303 @@
+/* =========================================
+   全域設定 (Technical Execution)
+========================================= */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+    background-color: #fafafa; 
+    color: #333333;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.8; 
+}
+
+/* =========================================
+   封面區域 (Hero Section)
+========================================= */
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.85; 
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    z-index: 1;
+}
+
+.hero-text {
+    position: absolute;
+    bottom: 15%;
+    left: 10%;
+    right: 10%;
+    color: white;
+    font-size: 3rem; 
+    font-weight: 800;
+    line-height: 1.3;
+    z-index: 2;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    letter-spacing: 0.02em;
+}
+
+/* =========================================
+   正文排版 (Narrative & Journalism)
+========================================= */
+.text {
+    max-width: 820px; 
+    margin: 40px auto; 
+    font-size: 1.15rem; 
+    color: #222;
+    padding: 0 20px;
+}
+
+.hero + .text {
+    margin-top: 80px; /* 從100px微調縮減，讓開篇更緊湊 */
+}
+
+.text p {
+    margin-bottom: 1.6em;
+    text-align: justify; 
+    text-wrap: pretty; 
+}
+
+/* =========================================
+   爆點文字 / 引文區塊 (頂格滿版)
+========================================= */
+.highlight {
+    width: 100%; 
+    margin: 40px 0; /* ✨【修正】大幅縮減外部間距 ✨ */
+    padding: 40px 20px; /* ✨【修正】縮減內部留白，消除孤島感 ✨ */
+    font-size: 1.8rem; 
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.5;
+    box-sizing: border-box; 
+}
+
+.highlight.dark {
+    background-color: #1a1a1a;
+    color: #f1f1f1;
+}
+
+.highlight.red {
+    background-color: #d63031;
+    color: white;
+}
+
+/* =========================================
+   章節與標題導航 (優化視覺層次與間距)
+========================================= */
+.chapter {
+    max-width: 820px; 
+    margin: 80px auto 10px; /* ✨【修正】將過大的110px回收到80px，既有層次又不脫節 ✨ */
+    font-size: 1.15rem; 
+    font-weight: 800; 
+    color: #d63031; 
+    letter-spacing: 0.2em; 
+    padding: 0 20px;
+}
+
+.chapter-title {
+    max-width: 820px; 
+    margin: 0 auto 40px;
+    font-size: 1.8rem; 
+    font-weight: 800;
+    line-height: 1.4;
+    color: #111;
+    padding: 0 20px 15px 20px;
+    border-bottom: 2px solid #111; 
+    white-space: nowrap; 
+}
+
+.subheading {
+    max-width: 820px; 
+    margin: 60px auto 30px; /* 從80px縮減 */
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #111;
+    padding: 0 20px;
+}
+
+/* =========================================
+   圖表與視覺化 (Visualization & Design)
+========================================= */
+.chart {
+    max-width: 920px; 
+    margin: 60px auto 20px;
+    padding: 0 20px;
+}
+
+.chart img {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06); 
+    border: 1px solid #eaeaea;
+    transition: transform 0.3s ease; 
+}
+
+.chart img:hover {
+    transform: scale(1.01);
+}
+
+/* 圖註 */
+.caption {
+    max-width: 920px; 
+    margin: 0 auto 60px; 
+    font-size: 0.85rem; 
+    color: #777; 
+    line-height: 1.6;
+    text-align: center; 
+    padding: 0 10px;
+}
+
+.caption strong {
+    display: block;
+    font-size: 1.15rem; 
+    color: #000;      
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+/* =========================================
+   互動式數據卡片 (Interactive Elements)
+========================================= */
+.cards {
+    display: flex;
+    gap: 30px;
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.card {
+    flex: 1;
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    cursor: pointer; 
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 4px;
+    background: #d63031;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px); 
+    box-shadow: 0 16px 30px rgba(0,0,0,0.08); 
+    border-color: #d63031; 
+}
+
+.card:hover::before {
+    transform: scaleX(1); 
+}
+
+.card h3 {
+    margin-top: 0;
+    font-size: 1.25rem;
+    color: #d63031; 
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+.card p {
+    font-size: 1.05rem;
+    color: #555;
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+/* =========================================
+   數據表格
+========================================= */
+.data-table {
+    max-width: 820px; 
+    margin: 40px auto 60px;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.05rem;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.data-table th {
+    background-color: #111;
+    color: #fff;
+    padding: 16px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.data-table td {
+    padding: 16px;
+    border-bottom: 1px solid #f0f0f0;
+    color: #333;
+}
+
+/* =========================================
+   結尾區塊
+========================================= */
+.ending {
+    max-width: 820px; 
+    margin: 100px auto 80px; /* 稍微縮減與上文距離 */
+    padding: 60px 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.2rem;
+    border-top: 4px solid #111;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+}
+
+.ending p {
+    color: #333;
+}
+
+/* =========================================
+   排版工具 (Typography Utilities) - 防止孤字
+========================================= */
+.keep-together {
+    white-space: nowrap;
+}
+
+/* =========================================
+   響應式設計 (RWD for Mobile)
+========================================= */
+@media (max-width: 768px) {
+    .hero-text { font-size: 2.2rem; left: 5%; right: 5%; }
+    .text { font-size: 1.05rem; margin: 30px auto; }
+    .hero + .text { margin-top: 40px; } 
+    .highlight { font-size: 1.6rem; padding: 40px 20px; } 
+    .chapter { margin: 60px auto 10px; font-size: 1rem; } 
+    .chapter-title { font-size: 1.5rem; white-space: normal; } 
+    .cards { flex-direction: column; }
+    .caption strong { font-size: 1.05rem; }
+}
